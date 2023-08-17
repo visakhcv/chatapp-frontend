@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useContext, useState } from 'react'
 import { UserContext } from './UserContext'
+import './registerandlogin.css'
 
 function RegisterAndLoginForm() {
 
@@ -15,33 +16,43 @@ function RegisterAndLoginForm() {
     const { data } = await axios.post(url, { username, password })
     setLoggedInUsername(username)
     setId(data.id)
-    
+
   }
-  
+
 
   return (
-    <div className='bg-blue-50 h-screen flex items-center'>
-      <form className='w-64 mx-auto mb-12' onSubmit={handleSubmit}>
-        <input value={username} onChange={e => setUsername(e.target.value)} type="text" placeholder='username' className='block border w-full rounded-sm p-2 mb-2' />
-        <input value={password} onChange={e => setPassword(e.target.value)} type="password" placeholder='password' className='block border w-full rounded-sm p-2 mb-2' />
-        <button className='bg-green-500 text-white block w-full rounded-sm p-2'>{isLoginOrRegister === 'register' ? 'Register' : 'Login'}</button>
-        <div className='text-center mt-2'>
-          {isLoginOrRegister === 'register' && (
-            <div>
-              Already a member?
-              <button className='ml-1' onClick={() => setLoginOrRegister('login')}>Login</button>
-            </div>
-          )}
-          {isLoginOrRegister === 'login' && (
-            <div>
-              Dont have an account?
-              <button className='ml-1' onClick={() => setLoginOrRegister('register')}>Register</button>
-            </div>
-          )}
+    <div className='register-main'>
+      <div className='bg-blue-50 register-box  flex justify-center items-center'>
+        <form className='register-container' onSubmit={handleSubmit}>
+          <div className='register-head'>
+          <h2>
+            {
+              isLoginOrRegister === 'register' ? 'Register' : 'Login'
+            }
+          </h2>
+          </div>
+          <input value={username} onChange={e => setUsername(e.target.value)} type="text" placeholder='username' className='block border w-full rounded-sm p-2 mb-2' />
+          <input value={password} onChange={e => setPassword(e.target.value)} type="password" placeholder='password' className='block border w-full rounded-sm p-2 mb-2' />
+          <button className='bg-green-500 text-white block w-full rounded-sm p-2'>{isLoginOrRegister === 'register' ? 'Register' : 'Login'}</button>
+          <div className='text-center mt-2'>
+            {isLoginOrRegister === 'register' && (
+              <div>
+                Already a member?
+                <button className='ml-1' onClick={() => setLoginOrRegister('login')}>Login</button>
+              </div>
+            )}
+            {isLoginOrRegister === 'login' && (
+              <div>
+                Dont have an account?
+                <button className='ml-1' onClick={() => setLoginOrRegister('register')}>Register</button>
+              </div>
+            )}
 
-        </div>
-      </form>
+          </div>
+        </form>
+      </div>
     </div>
+
   )
 }
 

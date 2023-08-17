@@ -1,0 +1,28 @@
+.chat-main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    background: linear-gradient(90deg, rgba(109,199,72,1) 0%, rgba(19,163,38,1) 39%, rgba(83,223,189,1) 100%);
+
+}
+
+.chat-box{
+    background-color: aliceblue;
+    display: flex;
+    width: 95vw;
+    height: 90vh;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.box{
+    max-width: 80%;
+}
+.chat-scroll{
+    overflow-y: hidden;
+}
+.wallpaper{
+    background-repeat: repeat;
+    background-image: url(https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png);
+}
