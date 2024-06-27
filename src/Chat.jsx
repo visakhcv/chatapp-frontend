@@ -7,6 +7,7 @@ import './chat.css'
 import Contact from '../Contact'
 import UsersTop from './UsersTop'
 
+
 function Chat() {
     const [ws, setWs] = useState(null)
     const [onlinePeople, setOnlinePeople] = useState({})
@@ -129,8 +130,7 @@ function Chat() {
             axios.get('/messages/' + selectedUserId).then(res => {
                 setMessages(res.data)
             })
-        }
-        
+        }   
     }, [selectedUserId])
 
     console.log(selectedUserId);
@@ -179,7 +179,7 @@ function Chat() {
                 </div>
                 <div className="flex wallpaper flex-col bg-green-100 w-2/3  ">
                 
-                     <UsersTop userId={userdetails} id={id} />
+                     {/* <UsersTop userId={userdetails} id={id} /> */}
 
                     <div className='flex-grow p-2'>
                         {!selectedUserId && (
